@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://illya-klus.github.io/web_labs_3-5",
+  "homepage": "https://illya-klus.github.io/web_lr_4_firebaseSupabase_deploy",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
