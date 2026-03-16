@@ -54,7 +54,7 @@ const RegisterPage = () => {
       if(result.seccesfull){
         console.log(result.body.user);
         setUserDataFromResponce(result);
-        navigate('/');
+        navigate(import.meta.env.VITE_BASE_URL+'/');
         showSeccess("Welcome to Sport Shop");
         
       }else{

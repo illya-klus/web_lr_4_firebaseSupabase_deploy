@@ -7,14 +7,14 @@ import { useConfirmModal } from "../modals/confirm/hook/useConfirmModal";
 
 const pseudoElementClasses = `relative after:content-[''] after:absolute after:left-0 after:-bottom-[5px] after:w-0 after:h-[3px] after:bg-[#00d1b2] after:transition-all after:duration-300`;
 const NavBasicItems = [
-    {to:"/", text:'Продукти'},
-    {to:"/discounts", text:'Акції'},
-    {to:"/profile", text:'Мій профіль'},
-    {to:"/about", text:'Про нас'},
+    {to:import.meta.env.VITE_BASE_URL+"/", text:'Продукти'},
+    {to:import.meta.env.VITE_BASE_URL+"/discounts", text:'Акції'},
+    {to:import.meta.env.VITE_BASE_URL+"/profile", text:'Мій профіль'},
+    {to:import.meta.env.VITE_BASE_URL+"/about", text:'Про нас'},
 ];
 const NavAuthItems = [
-    {to:"/auth/login", text:'LogIn'},
-    {to:"/auth/register", text:'SingUp'}
+    {to:import.meta.env.VITE_BASE_URL+"/auth/login", text:'LogIn'},
+    {to:import.meta.env.VITE_BASE_URL+"/auth/register", text:'SingUp'}
 ];
 
 
@@ -31,7 +31,7 @@ const NavigationBtn = ({text, to} : NavBtnsProps) => {
                 ? "text-[#00d1b2] after:w-full " + pseudoElementClasses
                 : pseudoElementClasses } 
             to={to}
-        >{text}</NavLink>
+        end>{text}</NavLink>
     )
 }
 

@@ -21,7 +21,7 @@ export const AuthBtns = () => {
 
       setUserDataFromResponce(result);
 
-      navigate("/");
+      navigate(import.meta.env.VITE_BASE_URL+"/");
 
       showSeccess("Successfully logged in with Google");
     } else {

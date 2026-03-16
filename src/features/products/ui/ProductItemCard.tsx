@@ -30,7 +30,7 @@ const ProductImage = ({id, image} : {id : string, image: string}) => {
       <img
         onClick={() =>{
           addToVisited(id);
-          navigate('/items/' + id);
+          navigate(import.meta.env.VITE_BASE_URL+'/items/' + id);
         } }
         src={image}
         className="h-44 sm:h-55 w-full object-contain hover:p-1 transition"

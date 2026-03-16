@@ -40,7 +40,7 @@ const LoginPage = () => {
         console.log(result.body.user);
         setUserDataFromResponce(result);
         
-        navigate('/');
+        navigate(import.meta.env.VITE_BASE_URL+'/');
         showSeccess("Welcome back to Sport Shop");
       }else{
         console.log(result.body.error); 

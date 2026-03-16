@@ -4,35 +4,35 @@ import ProductsGrid from "./ProductsGrid";
 
 const ItemsForInfoSection = [
     {
-        src: "/public/icons/quality-badge-thumbs-up-icon.png",
+        src: import.meta.env.VITE_BASE_URL+"/public/icons/quality-badge-thumbs-up-icon.png",
         text: "Тільки оригінальні товари",
     },
     {
-        src: "/public/icons/maps-pin-black-icon.webp",
+        src: import.meta.env.VITE_BASE_URL+"/public/icons/maps-pin-black-icon.webp",
         text: "Більше 35 магазинів по всій україні",
     },
     {
-        src: "/public/icons/cashback-icon.webp",
+        src: import.meta.env.VITE_BASE_URL+"/public/icons/cashback-icon.webp",
         text: "Кешбек за кожну покупку",
     },
     {
-        src: "/public/icons/delivery-truck-icon.webp",
+        src: import.meta.env.VITE_BASE_URL+"/public/icons/delivery-truck-icon.webp",
         text: "Безкоштовна доставка від 3000 грн",
     },
 ];
 const Brands = [
-    {src: "/brands/132889.png"},
-    {src: "/brands/132893.png"},
-    {src: "/brands/132894.jpg"},
-    {src: "/brands/132895.png"},
-    {src: "/brands/132897.png"},
-    {src: "/brands/132898.png"},
-    {src: "/brands/132900.jpg"},
-    {src: "/brands/132901.png"},
-    {src: "/brands/132903.png"},
-    {src: "/brands/132906.png"},
-    {src: "/brands/132912.png"},
-    {src: "/brands/138634.png"},
+    {src: import.meta.env.VITE_BASE_URL+"/brands/132889.png"},
+    {src: import.meta.env.VITE_BASE_URL+"/brands/132893.png"},
+    {src: import.meta.env.VITE_BASE_URL+"/brands/132894.jpg"},
+    {src: import.meta.env.VITE_BASE_URL+"/brands/132895.png"},
+    {src: import.meta.env.VITE_BASE_URL+"/brands/132897.png"},
+    {src: import.meta.env.VITE_BASE_URL+"/brands/132898.png"},
+    {src: import.meta.env.VITE_BASE_URL+"/brands/132900.jpg"},
+    {src: import.meta.env.VITE_BASE_URL+"/brands/132901.png"},
+    {src: import.meta.env.VITE_BASE_URL+"/brands/132903.png"},
+    {src: import.meta.env.VITE_BASE_URL+"/brands/132906.png"},
+    {src: import.meta.env.VITE_BASE_URL+"/brands/132912.png"},
+    {src: import.meta.env.VITE_BASE_URL+"/brands/138634.png"},
 ];
 
 

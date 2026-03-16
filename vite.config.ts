@@ -12,5 +12,5 @@ export default defineConfig({
     }),
     tailwindcss(),
   ],
-  // base: "/web_labs_3-5/",
+  base: "/web_lr_4_firebaseSupabase_deploy/",
 });
