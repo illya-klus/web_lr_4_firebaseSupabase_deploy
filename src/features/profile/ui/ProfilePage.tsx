@@ -1,35 +1,35 @@
-import { NavLink, Outlet } from "react-router-dom";
+// import { NavLink, Outlet } from "react-router-dom";
 import ProfileInfo from "./ProfileInfo";
 import { useAuth } from "../../auth/context/useAuthContext";
 
-const BtnsPanel = () => (
-  <div className="flex flex-wrap gap-3 justify-center sm:justify-start">
-    <NavLink
-      to={import.meta.env.VITE_BASE_URL + "/profile/history"}
-      className={({ isActive }) =>
-        (isActive
-          ? "bg-cyan-600 text-white"
-          : "bg-gray-100 text-gray-900 hover:bg-gray-200") +
-        " px-4 py-2 rounded-lg font-medium transition cursor-pointer text-sm"
-      }
-    >
-      Історія
-    </NavLink>
+// const BtnsPanel = () => (
+//   <div className="flex flex-wrap gap-3 justify-center sm:justify-start">
+//     <NavLink
+//       to={import.meta.env.VITE_BASE_URL + "/profile/history"}
+//       className={({ isActive }) =>
+//         (isActive
+//           ? "bg-cyan-600 text-white"
+//           : "bg-gray-100 text-gray-900 hover:bg-gray-200") +
+//         " px-4 py-2 rounded-lg font-medium transition cursor-pointer text-sm"
+//       }
+//     >
+//       Історія
+//     </NavLink>
 
-    <NavLink
-      to={import.meta.env.VITE_BASE_URL + "/profile"}
-      className={({ isActive }) =>
-        (isActive
-          ? "bg-cyan-600 text-white"
-          : "bg-gray-100 text-gray-900 hover:bg-gray-200") +
-        " px-4 py-2 rounded-lg font-medium transition cursor-pointer text-sm"
-      }
-      end
-    >
-      Кошик
-    </NavLink>
-  </div>
-);
+//     <NavLink
+//       to={import.meta.env.VITE_BASE_URL + "/profile"}
+//       className={({ isActive }) =>
+//         (isActive
+//           ? "bg-cyan-600 text-white"
+//           : "bg-gray-100 text-gray-900 hover:bg-gray-200") +
+//         " px-4 py-2 rounded-lg font-medium transition cursor-pointer text-sm"
+//       }
+//       end
+//     >
+//       Кошик
+//     </NavLink>
+//   </div>
+// );
 
 const ProfilePage = () => {
   const { user } = useAuth();

@@ -42,22 +42,22 @@ const Stats = [
 
 
 
-type InfoCardProps = { 
-    src: string;
-    title: string;
-    text: string;
-}
-const InfoCard = ({src, title, text} : InfoCardProps) => {
-    return (
-        <li className="card bg-white border border-slate-200 rounded-2xl p-5 flex gap-4 items-start shadow-sm">
-            <img src={src} alt="Значок" className="w-10 h-10 shrink-0" />
-            <div>
-                <h3 className="text-base font-bold text-slate-900">{title}</h3>
-                <p className="text-sm text-slate-600 mt-1">{text}</p>
-            </div>
-        </li>
-    );
-}
+// type InfoCardProps = { 
+//     src: string;
+//     title: string;
+//     text: string;
+// }
+// const InfoCard = ({src, title, text} : InfoCardProps) => {
+//     return (
+//         <li className="card bg-white border border-slate-200 rounded-2xl p-5 flex gap-4 items-start shadow-sm">
+//             <img src={src} alt="Значок" className="w-10 h-10 shrink-0" />
+//             <div>
+//                 <h3 className="text-base font-bold text-slate-900">{title}</h3>
+//                 <p className="text-sm text-slate-600 mt-1">{text}</p>
+//             </div>
+//         </li>
+//     );
+// }
 
 
 
