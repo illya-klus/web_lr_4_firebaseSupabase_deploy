@@ -12,5 +12,5 @@ export default defineConfig({
     }),
     tailwindcss(),
   ],
-  base: "/web_lr_4_firebaseSupabase_deploy/",
+  base: process.env.VITE_BASE_URL || "/web_lr_4_firebaseSupabase_deploy",
 });
