@@ -31,7 +31,7 @@ const ProfileInfo = () => {
 
   if (user.role === "anon") {
     return (
-      <div className="flex flex-col items-center justify-center gap-4 py-8 px-6 text-center rounded-xl bg-gray-50 border border-gray-200 shadow-sm max-w-md mx-auto">
+      <div className="flex flex-col items-center justify-center gap-4 py-8 px-6 text-center max-w-md mx-auto">
         <h3 className="text-xl sm:text-2xl font-semibold text-gray-900">
           Ви ще не увійшли
         </h3>
