@@ -21,7 +21,7 @@ import RegisterPage from '../features/auth/ui/RegisterPage';
 
 const router = createBrowserRouter([
   {
-    path: import.meta.env.VITE_BASE_URL,
+    path: '/',
     element: <Layout/>,
     children: [ 
       { index: true, element: <ProductsPage/> }, 
@@ -33,7 +33,7 @@ const router = createBrowserRouter([
     ]
   },
   {
-    path: import.meta.env.VITE_BASE_URL+'/auth',
+    path: '/auth',
     element: <AuthLayout/>,
     children:[
       { path: 'register', element: <RegisterPage/> },
