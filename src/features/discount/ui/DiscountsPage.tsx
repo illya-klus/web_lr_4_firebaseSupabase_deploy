@@ -8,43 +8,80 @@ import { ProductDto } from "../../../firebase/db/products";
 
 const DiscountPage = () => {
     let [products, setProducts] = useState<ProductDto[]>([]);
+    let [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         const download = async () =>{
-            let discountProducts = await downloadProductsWithDiscount();
-            setProducts(discountProducts);
-        }
+            try {
+                let discountProducts = await downloadProductsWithDiscount();
+                setProducts(discountProducts);
+            } finally {
+                setIsLoading(false);
+            }
+        };
         download();
     }, []);
 
-    const deadline = new Date(2026, 2, 10, 12);
+    const deadline = new Date(2026, 2, 17, 12);
     const now = new Date();
 
     const secondsUntilDeadline = Math.max(0, Math.floor((deadline.getTime() - now.getTime()) / 1000));
 
     return (
-        <section className="w-full px-4 sm:px-10 py-10 ">
-  
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-center text-gray-800 mb-6 px-2">
-              Лови знижки зараз!
+        <section className="w-full px-4 sm:px-6 py-12 sm:py-16">
+                
+          {/* HERO */}
+          <div className="max-w-5xl mx-auto text-center">
+            <p className="text-sm text-slate-500">
+              Special Offers
+            </p>
+            
+            <h2 className="hero-title text-4xl sm:text-5xl font-semibold mt-4 leading-tight text-slate-900">
+              Знижки на обрані товари
             </h2>
-        
-            <div className="max-w-3xl mx-auto mb-8 sm:mb-10 p-4 sm:p-6 bg-white rounded-xl shadow-md flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
-                <div className="text-center sm:text-left">
-                    <p className="text-xl font-semibold text-gray-700">Скоро закінчаться!</p>
-                    <p className="text-gray-500">Не пропусти акцію на топові товари</p>
-                </div>
-        
-                <Timer startSeconds={secondsUntilDeadline}/>
+            
+            <p className="text-slate-500 mt-6 text-lg max-w-2xl mx-auto">
+              Обмежені пропозиції на популярні позиції. Оновлюємо регулярно.
+            </p>
+          </div>
+            
+            
+          {/* TITLE */}
+          <div className="max-w-4xl mx-auto mt-12 flex flex-row items-center justify-center gap-5">
+            <p className="text-slate-500">
+              До завершення акції
+            </p>
+            <Timer startSeconds={secondsUntilDeadline} />
+          </div>
+          
+            
+          {/* STATES */}
+          {isLoading && (
+            <div className="max-w-6xl mx-auto mt-8 text-slate-500 text-center">
+              Завантаження...
             </div>
+          )}
         
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-2 sm:gap-4 max-w-222.5 mx-auto mt-10 mb-60">
-                {products.map(item => <ProductCard product={item}/>)}
+          {!isLoading && products.length === 0 && (
+            <div className="max-w-6xl mx-auto mt-8 text-slate-500 text-center">
+              Наразі немає активних акцій.
             </div>
+          )}
         
-            <div className="mt-12 text-center text-gray-400 italic">
-              🕒 Поспішай, поки товари не закінчились!
+          {/* PRODUCTS */}
+          {!isLoading && products.length > 0 && (
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto mt-10">
+              {products.map(item => (
+                <ProductCard key={item.id} product={item} />
+              ))}
             </div>
+          )}
+        
+          {/* FOOTER NOTE */}
+          <div className="mt-20 text-center text-sm text-slate-400">
+            Обмежена кількість товарів.
+          </div>
+        
         </section>
     );
 };

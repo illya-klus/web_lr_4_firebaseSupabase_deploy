@@ -8,15 +8,15 @@ import Footer from '../layout/footer';
 const Layout = () => {
 
     return(
-        <>
+        <div className='min-h-screen flex flex-col'>
         <Header/>
         
-        <main className='pt-24 sm:pt-30 '>
+        <main className='pt-12 sm:pt-16 flex-1'>
             <Outlet/>
         </main>
         
         <Footer/>
-        </>
+        </div>
     );
 }
 

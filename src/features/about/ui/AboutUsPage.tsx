@@ -1,138 +1,125 @@
 import { NavLink } from "react-router-dom";
-import obamaImage from "/public/images/obama.webp"
-import deliveryImage from "/public/images/delivery.jpg"
+import obamaImage from "/public/images/obama.webp";
+import deliveryImage from "/public/images/delivery.jpg";
 import qualityImage from "/public/images/garanty.jpg";
 import supportImage from "/public/images/support.jpg";
 
-const OurMission = () => {
-    return(
-    <div className="max-w-6xl mx-auto py-12 sm:py-16 px-4 sm:px-6 flex flex-col lg:flex-row items-center gap-8 sm:gap-10">
+const AboutUs = () => {
+  const baseUrl = import.meta.env.VITE_BASE_URL;
+
+  return (
+    <section className="w-full text-slate-900 px-4 sm:px-6 py-12 sm:py-16">
+
+      {/* HERO */}
+      <div className="max-w-5xl mx-auto text-center">
+        <p className="text-sm text-slate-500">
+          About SportUA
+        </p>
+
+        <h1 className="hero-title text-4xl sm:text-5xl font-semibold mt-4 leading-tight">
+          Простий шлях до активного життя
+        </h1>
+
+        <p className="text-slate-500 mt-6 text-lg max-w-2xl mx-auto">
+          SportUA — це онлайн-простір для тих, хто цінує якісне спорядження,
+          чесний сервіс і швидку доставку.
+        </p>
+      </div>
+
+      {/* MISSION */}
+      <div className="max-w-6xl mx-auto mt-20 sm:mt-24 grid lg:grid-cols-2 gap-12 items-center">
         <img
           src={obamaImage}
-          alt="Місія магазину"
-          className="w-full lg:w-1/2 rounded-xl shadow-lg"
+          alt="Місія SportUA"
+          className="w-full h-[420px] object-cover rounded-2xl"
         />
-        <div className="lg:w-1/2 flex flex-col gap-4">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-800">
-            Наша Місія
+
+        <div>
+          <h2 className="hero-title text-3xl sm:text-4xl font-semibold">
+            Наша місія
           </h2>
-          <p className="text-gray-600 text-lg">
-            Ми хочемо надихати кожного спортсмена та активну людину на нові
-            звершення. У нас тільки якісне спорядження, яке допомагає
-            досягати максимальних результатів.
+
+          <p className="text-slate-500 mt-6 text-lg leading-relaxed">
+            Ми робимо спорт доступним і комфортним для кожного — від новачка до профі.
+            Відбираємо перевірені бренди та будуємо сервіс, який реально допомагає.
           </p>
-          <p className="text-gray-600 text-lg">
-            Від аматорів до профі — ми підтримуємо всіх, хто обирає активний
-            спосіб життя.
+
+          <p className="text-slate-500 mt-4 text-lg leading-relaxed">
+            Наша мета — не просто продаж, а результат у твоїх тренуваннях.
           </p>
         </div>
       </div>
-    );
-}
 
-const InfoPanel = () => {
-    return(
-        <div className="bg-white py-16">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-10">
-          <div className="flex flex-col items-center text-center p-6 bg-gray-20 rounded-xl shadow-md hover:shadow-xl transition">
-            <img src={deliveryImage} className="w-full lg:w-1/2 rounded-xl shadow-lg" alt="" />
-            <h3 className="text-2xl font-bold mb-2">Швидка Доставка</h3>
-            <p className="text-gray-600">
-              Твоє спорядження прибуде швидко і без проблем, щоб ти міг
-              тренуватися без зупинок.
+      {/* FEATURES */}
+      <div className="max-w-6xl mx-auto mt-20 sm:mt-24">
+        <div className="grid md:grid-cols-3 gap-10">
+
+          <div>
+            <img
+              src={deliveryImage}
+              className="w-full h-48 object-cover rounded-xl mb-4"
+              alt="Доставка"
+            />
+            <h3 className="text-lg font-semibold">Швидка доставка</h3>
+            <p className="text-slate-500 mt-2">
+              Обробляємо замовлення без затримок, щоб ти не випадав з тренувань.
             </p>
           </div>
-          <div className="flex flex-col items-center text-center p-6 bg-gray-20 rounded-xl shadow-md hover:shadow-xl transition">
-                        <img src={qualityImage} className="w-full lg:w-1/2 rounded-xl shadow-lg" alt="" />
-            <h3 className="text-2xl font-bold mb-2">Якість Товарів</h3>
-            <p className="text-gray-600">
-              Ми обираємо лише найкращі бренди та матеріали для твого комфорту
-              та ефективності тренувань.
+
+          <div>
+            <img
+              src={qualityImage}
+              className="w-full h-48 object-cover rounded-xl mb-4"
+              alt="Якість"
+            />
+            <h3 className="text-lg font-semibold">Перевірена якість</h3>
+            <p className="text-slate-500 mt-2">
+              Пропонуємо тільки ті товари, які реально працюють.
             </p>
           </div>
-          <div className="flex flex-col items-center text-center p-6 bg-gray-20 rounded-xl shadow-md hover:shadow-xl transition">
-                        <img src={supportImage} className="w-full lg:w-1/2 rounded-xl shadow-lg" alt="" />
-            <h3 className="text-2xl font-bold mb-2">Підтримка Клієнтів</h3>
-            <p className="text-gray-600">
-              Ми завжди на зв’язку, щоб допомогти з вибором спорядження та
-              відповісти на будь-які питання.
+
+          <div>
+            <img
+              src={supportImage}
+              className="w-full h-48 object-cover rounded-xl mb-4"
+              alt="Підтримка"
+            />
+            <h3 className="text-lg font-semibold">Підтримка</h3>
+            <p className="text-slate-500 mt-2">
+              Допоможемо з вибором і замовленням без зайвого шуму.
             </p>
           </div>
+
         </div>
       </div>
-    );
-}
 
-const OurTeam = () => {
-    return (
-         <div className="max-w-6xl mx-auto py-12 sm:py-16 px-4 sm:px-6">
-        <h2 className="text-4xl font-bold text-center mb-12">Наша Команда</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-          <div className="flex flex-col items-center text-center">
-            <img
-              src="/images/team1.jpg"
-              alt="Team Member"
-              className="w-40 h-40 rounded-full object-cover mb-4 shadow-lg"
-            />
-            <h3 className="text-xl font-bold">Іван</h3>
-            <p className="text-gray-500">Менеджер по спорту</p>
-          </div>
-          <div className="flex flex-col items-center text-center">
-            <img
-              src="/images/team2.jpg"
-              alt="Team Member"
-              className="w-40 h-40 rounded-full object-cover mb-4 shadow-lg"
-            />
-            <h3 className="text-xl font-bold">Оля</h3>
-            <p className="text-gray-500">Клієнтська підтримка</p>
-          </div>
-          <div className="flex flex-col items-center text-center">
-            <img
-              src="/images/team3.jpg"
-              alt="Team Member"
-              className="w-40 h-40 rounded-full object-cover mb-4 shadow-lg"
-            />
-            <h3 className="text-xl font-bold">Макс</h3>
-            <p className="text-gray-500">Логістика</p>
-          </div>
-          <div className="flex flex-col items-center text-center">
-            <img
-              src="/images/team4.jpg"
-              alt="Team Member"
-              className="w-40 h-40 rounded-full object-cover mb-4 shadow-lg"
-            />
-            <h3 className="text-xl font-bold">Катя</h3>
-            <p className="text-gray-500">Маркетинг</p>
-          </div>
-        </div>
-      </div>
-    );
-}
-
-const LetsContinue = () => {
-    return (
-        <div className="bg-[#00d1b2] text-white py-12 sm:py-16 text-center px-4">
-        <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-          Готовий до нових звершень?
+      {/* CTA */}
+      <div className="max-w-4xl mx-auto mt-24 sm:mt-28 text-center">
+        <h2 className="hero-title text-3xl sm:text-4xl font-semibold">
+          Готовий почати?
         </h2>
-        <p className="mb-6 text-lg">
-          Обери своє спорядження прямо зараз і починай тренування!
+
+        <p className="text-slate-500 mt-4 text-lg">
+          Обери екіпірування та почни тренування вже сьогодні.
         </p>
-        <button className="bg-white text-green-500 font-bold px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition">
-          <NavLink to="/">Перейдімо до товарів</NavLink>
-        </button>
+
+        <div className="mt-8 flex justify-center gap-4 flex-wrap">
+          <NavLink
+            to={baseUrl + "/"}
+            className="px-6 py-3 rounded-lg bg-slate-300 text-white font-medium hover:bg-slate-200 transition"
+          >
+            До каталогу
+          </NavLink>
+
+          <NavLink
+            to={baseUrl + "/about"}
+            className="px-6 py-3 rounded-lg border border-slate-300 text-slate-900 font-medium hover:border-slate-900 transition"
+          >
+            Детальніше
+          </NavLink>
+        </div>
       </div>
-    );
-}
 
-
-const AboutUs = () => {
-  return (
-    <section className="w-full text-gray-800">
-        <OurMission/>
-        <InfoPanel/>
-        <OurTeam/>
-        <LetsContinue/>
     </section>
   );
 };

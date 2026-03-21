@@ -55,7 +55,7 @@ const RegisterPage = () => {
         console.log(result.body.user);
         setUserDataFromResponce(result);
         navigate(import.meta.env.VITE_BASE_URL+'/');
-        showSeccess("Welcome to Sport Shop");
+        showSeccess("Акаунт створено успішно. Ласкаво просимо!");
         
       }else{
         console.log(result.body.error); 
@@ -67,15 +67,17 @@ const RegisterPage = () => {
 
 
   return (
-    <div className="min-h-screen bg-gray-100 pt-45 px-4 sm:flex sm:items-center sm:justify-center sm:p-0">
+    <div className="min-h-screen px-4 pt-36 sm:pt-44 sm:flex sm:items-start sm:justify-center">
       <SeccessModalComponent/>
       <ErrorModalComponent/>
 
-      <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-4 p-6 sm:p-8 bg-white rounded-xl shadow-md w-full max-w-sm">
+      <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-4 p-6 sm:p-8 bg-white border border-slate-200 rounded-2xl shadow-lg w-full max-w-md">
 
-        <h2 className="text-2xl font-bold text-center text-gray-800">
-          Register
-        </h2>
+        <div className="text-center mb-2">
+          <p className="inline-flex px-3 py-1 rounded-full bg-cyan-50 text-cyan-700 text-xs font-semibold">SportUA account</p>
+          <h2 className="text-3xl font-black text-slate-900 mt-3">Створити акаунт</h2>
+          <p className="text-slate-500 mt-1">Приєднуйтесь до покупців SportUA.</p>
+        </div>
 
         <div className="flex flex-col">
           <input
@@ -83,7 +85,7 @@ const RegisterPage = () => {
             onChange={handleEmailChange}
             type="text"
             placeholder="Email"
-            className={`px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 ${ mistakes.emailError ? "border-red-500 focus:ring-red-300" : "border-gray-300 focus:ring-[#00d1b2]"}`}
+            className={`px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 ${ mistakes.emailError ? "border-red-500 focus:ring-red-300" : "border-slate-300 focus:ring-cyan-200"}`}
           />
           {mistakes.emailError && ( <span className="text-red-500 text-sm mt-1">{mistakes.emailError}</span> )}
         </div>
@@ -93,8 +95,8 @@ const RegisterPage = () => {
             value={firstPasswordInput}
             onChange={handleFirstPassInputChange}
             type="password"
-            placeholder="Password"
-            className={`px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 ${ mistakes.passwordError ? "border-red-500 focus:ring-red-300" : "border-gray-300 focus:ring-[#00d1b2]"}`}
+            placeholder="Пароль"
+            className={`px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 ${ mistakes.passwordError ? "border-red-500 focus:ring-red-300" : "border-slate-300 focus:ring-cyan-200"}`}
           />
           {mistakes.passwordError && (<span className="text-red-500 text-sm mt-1">{mistakes.passwordError}</span>)}
         </div>
@@ -104,8 +106,8 @@ const RegisterPage = () => {
             value={secondPasswordInput}
             onChange={handleSecondPassInputChange}
             type="password"
-            placeholder="Password"
-            className={`px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 ${ mistakes.passwordsIdentityError ? "border-red-500 focus:ring-red-300" : "border-gray-300 focus:ring-[#00d1b2]"}`}
+            placeholder="Повторіть пароль"
+            className={`px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 ${ mistakes.passwordsIdentityError ? "border-red-500 focus:ring-red-300" : "border-slate-300 focus:ring-cyan-200"}`}
           />
           {mistakes.passwordsIdentityError && (<span className="text-red-500 text-sm mt-1">{mistakes.passwordsIdentityError}</span>)} 
         </div>
@@ -114,17 +116,17 @@ const RegisterPage = () => {
         <button
           type="submit"
           disabled={hasErrors}
-          className={`mt-6 px-4 py-2 text-white font-semibold rounded-lg transition ${
-            hasErrors ? "bg-gray-400 cursor-not-allowed" : "bg-[#00d1b2] hover:bg-[#00b8a0] active:scale-95" }
+          className={`mt-6 px-4 py-3 text-slate-950 font-semibold rounded-xl transition ${
+            hasErrors ? "bg-slate-300 text-slate-500 cursor-not-allowed" : "bg-cyan-400 hover:bg-cyan-300 shadow" }
           `}
         >
-          Register
+          Зареєструватися
         </button>
 
-                    <div className="flex items-center gap-2 my-4">
-              <div className="flex-1 h-px bg-gray-200"></div>
-              <span className="text-sm text-gray-400">or</span>
-              <div className="flex-1 h-px bg-gray-200"></div>
+                    <div className="flex items-center gap-2 my-2">
+              <div className="flex-1 h-px bg-slate-200"></div>
+              <span className="text-sm text-slate-400">або</span>
+              <div className="flex-1 h-px bg-slate-200"></div>
             </div>
             <AuthBtns />
 

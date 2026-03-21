@@ -9,7 +9,7 @@ export default function ConfirmModal({ message, onSubmit, onCancel }: Props) {
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
       
 
-      <div className="bg-white rounded-2xl shadow-xl max-w-md w-full p-6 flex flex-col gap-6 animate-slideIn">
+      <div className="bg-white rounded-2xl shadow-xl max-w-md w-full p-6 flex flex-col gap-6">
         
 
         <p className="text-gray-700 text-center text-lg font-semibold">{message}</p>

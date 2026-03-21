@@ -16,17 +16,17 @@ export default function ErrorModal({ message, onClose }: Props) {
   },[]);
 
   return (
-    <div className="fixed top-30 right-6 z-50 animate-slideIn">
+    <div className="fixed top-30 right-6 z-50">
       <div className="
         flex items-center gap-2
-        bg-red-400 text-white
+        bg-rose-500 text-white
         px-5 py-3
         rounded-xl
-        shadow-xl
+        shadow-xl border border-rose-300/40
         backdrop-blur
-        font-medium
+        font-semibold
       ">
-        {message}
+        <span>Помилка:</span> {message}
       </div>
     </div>
   )

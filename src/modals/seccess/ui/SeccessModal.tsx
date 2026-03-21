@@ -19,13 +19,13 @@ export default function SuccessModal({ message, onClose }: Props) {
     <div className="fixed top-30 right-6 z-50">
       <div className="
         max-w-sm w-full
-        bg-green-400 text-white
+        bg-emerald-500 text-white
         flex items-center justify-between gap-3
         px-5 py-3
-        rounded-xl shadow-xl
-        font-medium
+        rounded-xl shadow-xl border border-emerald-300/40
+        font-semibold
       ">
-        {message}
+        <span>Успіх:</span> {message}
       </div>
     </div>
   )

@@ -2,10 +2,11 @@ import { useState } from "react";
 import { NavLink } from "react-router";
 import { useAuth } from "../features/auth/context/useAuthContext";
 import { useConfirmModal } from "../modals/confirm/hook/useConfirmModal";
+import FloatingCartButton from "../features/cart/ui/FloatingCartButton";
 
 
 
-const pseudoElementClasses = `relative after:content-[''] after:absolute after:left-0 after:-bottom-[5px] after:w-0 after:h-[3px] after:bg-[#00d1b2] after:transition-all after:duration-300`;
+const pseudoElementClasses = "rounded-lg px-3 py-2 transition-all duration-200 hover:bg-slate-100";
 const NavBasicItems = [
     {to:import.meta.env.VITE_BASE_URL+"/", text:'Продукти'},
     {to:import.meta.env.VITE_BASE_URL+"/discounts", text:'Акції'},
@@ -28,7 +29,7 @@ const NavigationBtn = ({text, to} : NavBtnsProps) => {
     return (
         <NavLink 
             className={ ({isActive}) => isActive 
-                ? "text-[#00d1b2] after:w-full " + pseudoElementClasses
+                ? "bg-cyan-50 text-cyan-700 font-semibold " + pseudoElementClasses
                 : pseudoElementClasses } 
             to={to}
         end>{text}</NavLink>
@@ -43,41 +44,53 @@ const Header = () => {
 
 
     return(
-        <header className="text-lg sm:text-xl fixed top-2 w-full flex flex-col items-center justify-center z-50 px-2 sm:px-0">
+        <header className="text-base sm:text-lg fixed top-0 w-full flex flex-col items-center justify-center z-50 px-3 pt-3">
             <ConfirmModalComponent/>
 
-            <div className="max-w-300 p-4 sm:p-7 w-full flex flex-wrap sm:flex-row justify-between items-center gap-4 sm:gap-0 bg-[#2b2b2be7] text-white shadow-lg rounded-xl">
+            <div className="max-w-6xl px-4 sm:px-6 py-3 sm:py-4 w-full flex flex-wrap sm:flex-row justify-between items-center gap-3 sm:gap-0 bg-white/85 text-slate-800 shadow-lg backdrop-blur-md rounded-2xl border border-slate-200">
                 <button
                     onClick={() => setMenuOpen(!menuOpen)}
-                    className="sm:hidden text-2xl"
+                    className="sm:hidden text-2xl text-slate-700"
                 >
                     ☰
                 </button>
-                <div className="logo_conteiner text-lg sm:text-xl font-semibold ">
-                    logo
+                <div className="logo_conteiner text-lg sm:text-xl font-extrabold tracking-tight text-slate-900">
+                    Sport<span className="text-cyan-600">UA</span>
                 </div>
-                <nav className="hidden sm:flex flex-wrap justify-center sm:justify-start gap-4 sm:gap-7 w-full sm:w-auto">
+                <nav className="hidden sm:flex flex-wrap justify-center sm:justify-start gap-2 sm:gap-3 w-full sm:w-auto">
                     {NavBasicItems.map((item)=> <NavigationBtn key={item.to} to={item.to} text={item.text}/>)}
                 </nav>
                 {user.authStatus === 'not_identify' ?
-                    <nav className="hidden sm:flex gap-4 sm:gap-5 w-full sm:w-auto justify-center sm:justify-end">
+                    <nav className="hidden sm:flex gap-2 sm:gap-3 w-full sm:w-auto justify-center sm:justify-end">
                         {NavAuthItems.map((item)=> <NavigationBtn key={item.to} to={item.to} text={item.text}/>)}
                     </nav>
                     :
-                    <button className="cursor-pointer hidden sm:block text-2xl" onClick={() => showModal(alertMessage)}>Log Out</button>
+                    <button
+                        className="cursor-pointer hidden sm:block px-4 py-2 rounded-lg bg-slate-900 text-white font-medium hover:bg-slate-700 transition-colors"
+                        onClick={() => showModal(alertMessage)}
+                    >
+                        Log Out
+                    </button>
                 }
             </div>
 
             {menuOpen && (
-                <div className="sm:hidden mt-2 w-full bg-[#2b2b2be7] text-white shadow-lg rounded-xl p-4 flex flex-col gap-4">
+                <div className="sm:hidden mt-2 w-full bg-white text-slate-800 shadow-lg rounded-2xl p-4 flex flex-col gap-3 border border-slate-200">
                 
                     {NavBasicItems.map((item) => (
                         <NavigationBtn key={item.to} to={item.to} text={item.text} />
                     ))}
 
-                    <div className="border-t border-gray-600 pt-4 flex flex-col gap-4">
+                    <div className="border-t border-slate-200 pt-4 flex flex-col gap-3">
                         {user.authStatus === "identify" 
-                            ? <button onClick={() => showModal(alertMessage)}>Log Out</button> 
+                            ? (
+                                <button
+                                    className="px-4 py-2 rounded-lg bg-slate-900 text-white font-medium"
+                                    onClick={() => showModal(alertMessage)}
+                                >
+                                    Log Out
+                                </button>
+                            )
                             : NavAuthItems.map((item) => (
                                 <NavigationBtn key={item.to} to={item.to} text={item.text} />
                         ))}
@@ -85,7 +98,7 @@ const Header = () => {
                     
                 </div>
             )}
-    
+        <FloatingCartButton />
         </header>
     );
 }

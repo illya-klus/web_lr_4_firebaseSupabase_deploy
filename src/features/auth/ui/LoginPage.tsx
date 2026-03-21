@@ -41,7 +41,7 @@ const LoginPage = () => {
         setUserDataFromResponce(result);
         
         navigate(import.meta.env.VITE_BASE_URL+'/');
-        showSeccess("Welcome back to Sport Shop");
+        showSeccess("З поверненням! Вхід виконано успішно.");
       }else{
         console.log(result.body.error); 
         showError(result.body.error.message);
@@ -57,61 +57,92 @@ const LoginPage = () => {
     mistakes.passwordsIdentityError !== "";
 
   return (
-    <div className="min-h-screen bg-gray-100 pt-50 px-4 sm:flex sm:items-center sm:justify-center sm:p-0">
-      <SeccessModalComponent/>
-      <ErrorModalComponent/>
+    <div className="min-h-screen px-4 pt-32 sm:pt-40 flex justify-center">
+      <SeccessModalComponent />
+      <ErrorModalComponent />
       
       <form
         onSubmit={handleSubmit}
         noValidate
-        className=" flex flex-col gap-4 p-6 sm:p-8 bg-white rounded-2xl shadow-lg w-full max-w-sm "
+        className="w-full max-w-md"
       >
-        <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">
-          Login
-        </h2>
-
-        <div className="flex flex-col">
-          <input
-            value={emailInput}
-            onChange={handleEmailChange}
-            type="text"
-            placeholder="Email"
-            className={`px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 ${ mistakes.emailError ? "border-red-500 focus:ring-red-300" : "border-gray-300 focus:ring-[#00d1b2]"}`}
-            required
-          />
-          {mistakes.emailError && ( <span className="text-red-500 text-sm mt-1">{mistakes.emailError}</span> )}
+        {/* HEADER */}
+        <div className="text-center">
+          <p className="text-sm text-slate-500">SportUA account</p>
+          <h2 className="hero-title text-3xl font-semibold mt-3 text-slate-900">
+            Вхід в акаунт
+          </h2>
+          <p className="text-slate-500 mt-2">
+            Введіть свої дані для входу
+          </p>
         </div>
-
-        <div className="flex flex-col">
-          <input
-            value={passwordInput} 
-            onChange={handlePasswordChange}
-            type="password" 
-            placeholder="Password"
-            className={`px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 ${ mistakes.passwordError ? "border-red-500 focus:ring-red-300" : "border-gray-300 focus:ring-[#00d1b2]"}`}
-            required
-          />
-          {mistakes.passwordError && (<span className="text-red-500 text-sm mt-1">{mistakes.passwordError}</span>)}
+      
+        {/* FIELDS */}
+        <div className="mt-10 flex flex-col gap-6">
+      
+          <div>
+            <input
+              value={emailInput}
+              onChange={handleEmailChange}
+              type="text"
+              placeholder="Email"
+              className={`w-full px-0 py-3 border-b focus:outline-none transition ${
+                mistakes.emailError
+                  ? "border-red-500"
+                  : "border-slate-300 focus:border-slate-900"
+              }`}
+            />
+            {mistakes.emailError && (
+              <span className="text-red-500 text-sm mt-1 block">
+                {mistakes.emailError}
+              </span>
+            )}
+          </div>
+          
+          <div>
+            <input
+              value={passwordInput}
+              onChange={handlePasswordChange}
+              type="password"
+              placeholder="Пароль"
+              className={`w-full px-0 py-3 border-b focus:outline-none transition ${
+                mistakes.passwordError
+                  ? "border-red-500"
+                  : "border-slate-300 focus:border-slate-900"
+              }`}
+            />
+            {mistakes.passwordError && (
+              <span className="text-red-500 text-sm mt-1 block">
+                {mistakes.passwordError}
+              </span>
+            )}
+          </div>
+          
         </div>
-
+          
+        {/* BUTTON */}
         <button
           type="submit"
           disabled={hasErrors}
-          className={`mt-6 px-4 py-2 text-white font-semibold rounded-lg transition ${
-            hasErrors ? "bg-gray-400 cursor-not-allowed" : "bg-[#00d1b2] hover:bg-[#00b8a0] active:scale-95" }
-          `}
+          className={`mt-10 w-full py-3 rounded-lg font-medium transition ${
+            hasErrors
+              ? "bg-slate-200 text-slate-400 cursor-not-allowed"
+              : "bg-slate-900 text-white hover:bg-slate-800"
+          }`}
         >
-          Login
+          Увійти
         </button>
-
-              <div className="flex items-center gap-2 my-4">
-        <div className="flex-1 h-px bg-gray-200"></div>
-        <span className="text-sm text-gray-400">or</span>
-        <div className="flex-1 h-px bg-gray-200"></div>
-      </div>
-      <AuthBtns />
+          
+        {/* DIVIDER */}
+        <div className="flex items-center gap-3 my-8">
+          <div className="flex-1 h-px bg-slate-200"></div>
+          <span className="text-sm text-slate-400">або</span>
+          <div className="flex-1 h-px bg-slate-200"></div>
+        </div>
+          
+        {/* SOCIAL */}
+        <AuthBtns />
       </form>
-
     </div>
   );
 };

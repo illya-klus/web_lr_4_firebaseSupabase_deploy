@@ -10,7 +10,6 @@ import DiscountPage from '../features/discount/ui/DiscountsPage';
 import ItemPage from '../features/item/ui/ItemPage';
 import ProfilePage from '../features/profile/ui/ProfilePage';
 import Cart from '../features/cart/ui/Cart';
-import ProfileHistory from '../features/profile/ui/ProfileHistory';
 import AuthLayout from './AuthLayout';
 
 import LoginPage from '../features/auth/ui/LoginPage';
@@ -29,21 +28,8 @@ const router = createBrowserRouter([
       { path:'about', element: <AboutUs/> }, 
       { path:'discounts', element: <DiscountPage/> },
       { path:'items/:id', element: <ItemPage/> },
-      { 
-        path:'profile', 
-        element: <ProfilePage/>,
-        children: [
-          {
-            index:true,
-            element: <Cart/>
-          },
-          {
-            path:'history',
-            element: <ProfileHistory/>
-          },
-        ]
-      },
-
+      { path:'profile', element: <ProfilePage/> },
+      { path:':uid/cart', element: <Cart/>},
     ]
   },
   {
