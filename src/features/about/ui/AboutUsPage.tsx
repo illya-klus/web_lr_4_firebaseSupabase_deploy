@@ -31,7 +31,7 @@ const AboutUs = () => {
         <img
           src={obamaImage}
           alt="Місія SportUA"
-          className="w-full h-[420px] object-cover rounded-2xl"
+          className="w-full h-105 object-cover rounded-2xl"
         />
 
         <div>
