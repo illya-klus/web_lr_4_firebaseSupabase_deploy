@@ -10,7 +10,7 @@ const FloatingCartButton = () => {
 
   const handleClick = () => {
     if (user.userId !== "none") {
-      navigate(`/${import.meta.env.VITE_BASE_URL}/${user.userId}/cart`);
+      navigate(`/${user.userId}/cart`);
     }
   };
 
