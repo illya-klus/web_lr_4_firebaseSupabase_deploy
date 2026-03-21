@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { NavLink } from "react-router";
+import { useEffect, useState } from "react";
+import { NavLink, useLocation } from "react-router";
 import { useAuth } from "../features/auth/context/useAuthContext";
 import { useConfirmModal } from "../modals/confirm/hook/useConfirmModal";
 import FloatingCartButton from "../features/cart/ui/FloatingCartButton";
@@ -41,6 +41,11 @@ const Header = () => {
     const {user, setUserAsNotIdentify} = useAuth();
     const {showModal, ConfirmModalComponent} = useConfirmModal(() => setUserAsNotIdentify());
     let alertMessage = "Ви впевнені що хочете вийти з акаунту?\nВсі дані буде збережено."
+    const location = useLocation(); 
+    
+    useEffect(() => {
+        setMenuOpen(false);
+    }, [location.pathname]);
 
 
     return(
