@@ -4,6 +4,7 @@ import { useSeccessModal } from "../../../modals/seccess/hooks/useSeccessModal";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/useAuthContext";
 import { loginUserWithGoogle } from "../api/authWithGoogleApi";
+import googleIcon from "/public/icons/google-black-icon.png";
 
 export const AuthBtns = () => {
   const navigate = useNavigate();
@@ -42,7 +43,7 @@ export const AuthBtns = () => {
           className="w-full flex items-center justify-center gap-2 px-4 py-3 border border-slate-300 rounded-xl hover:bg-slate-50 transition-colors font-semibold text-slate-700"
         >
           <img
-            src="/icons/google.svg"
+            src={googleIcon}
             alt="google"
             className="w-5 h-5"
           />
