@@ -22,7 +22,7 @@ export const AuthBtns = () => {
 
       setUserDataFromResponce(result);
 
-      navigate(import.meta.env.VITE_BASE_URL+"/");
+      navigate("/");
 
       showSeccess("Ви успішно увійшли через Google");
     } else {

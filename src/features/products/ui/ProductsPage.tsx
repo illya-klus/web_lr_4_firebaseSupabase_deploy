@@ -5,17 +5,17 @@ import { Link } from "react-router-dom";
 
 const TrustItems = [
     {
-        src: import.meta.env.VITE_BASE_URL+"/public/icons/quality-badge-thumbs-up-icon.png",
+        src: import.meta.env.VITE_BASE_URL+"/icons/quality-badge-thumbs-up-icon.png",
         title: "100% оригінал",
         text: "Лише офіційна продукція з гарантією.",
     },
     {
-        src: import.meta.env.VITE_BASE_URL+"/public/icons/maps-pin-black-icon.webp",
+        src: import.meta.env.VITE_BASE_URL+"/icons/maps-pin-black-icon.webp",
         title: "Мережа по Україні",
         text: "35+ точок видачі та зручна доставка.",
     },
     {
-        src: import.meta.env.VITE_BASE_URL+"/public/icons/cashback-icon.webp",
+        src: import.meta.env.VITE_BASE_URL+"/icons/cashback-icon.webp",
         title: "Вигідні покупки",
         text: "Акції, кешбек і бонуси для постійних клієнтів.",
     },
